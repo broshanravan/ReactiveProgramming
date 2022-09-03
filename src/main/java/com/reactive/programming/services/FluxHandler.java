@@ -4,16 +4,12 @@ import com.reactive.programming.beans.Car;
 import com.reactive.programming.inventories.CarInventory;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
-
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
 @Slf4j
 public class FluxHandler {
-
-
 
     CarInventory carInventory = new CarInventory();
 
@@ -100,7 +96,7 @@ public class FluxHandler {
 
     public static void main(String[] args){
         FluxHandler fluxHandler = new FluxHandler();
-        fluxHandler.getAllCars().subscribe(car -> car.displayDetails());;
+        //fluxHandler.getAllCars().subscribe(car -> car.displayDetails());;
         //fluxHandler.getAllFilteredCars(List.of(1,4)).subscribe(car -> car.displayDetails());
         //fluxHandler.getAllCarsFilteredAndMapped(List.of(1,4)).subscribe(car -> car.displayDetails());
         //fluxHandler.getFlatMapOfAllCarModels().subscribe(System.out::println);
@@ -108,7 +104,7 @@ public class FluxHandler {
         //fluxHandler.getFilteredFlatMapOfCarModels(List.of(3,2)).subscribe(System.out::println);
 
         //Flux<String> modelsFlux = fluxHandler.getDelayedConcatMapOfAllCarMakes();
-        //fluxHandler.getDelayedConcatMapOfAllCarMakes().subscribe(car->System.out.println(car));
+        fluxHandler.getDelayedConcatMapOfAllCarMakes().subscribe(carMakes-> System.out.println(carMakes));
 
         //Flux<List<Car>> perviusModelsFlux = fluxHandler.getAllCarPreviousModels();
         //perviusModelsFlux.subscribe(carsList ->(System.out.println(carsList::get));
